@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher, executor, types
 import logging
-from select_data_from_mysql_table import select_data
+from select_data import get_data
 
 TOKEN = "ТОКЕН ВАШОГО БОТА"  # СКОПІЮЙТЕ ЙОГО У @BotFather
 logging.basicConfig(level=logging.INFO)
@@ -18,7 +18,7 @@ async def starting(message: types.Message):
 async def starting(message: types.Message):
     """ Надсилає повідомлення, у якому містяться країни: столиці,
         отримані з файлу select_data_from_mysql_table.py """
-    await message.answer(select_data())
+    await message.answer(get_data())
 
 
 if __name__ == "__main__":
